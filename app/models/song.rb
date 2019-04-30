@@ -4,14 +4,27 @@ class Song < ActiveRecord::Base
   has_many :notes
 
   # GENRE METHODS
+  # using the same method as artist_name=
+  def genre_name=(name)
+    genre = Genre.find_or_create_by(name: name)
+    self.genre = genre
+    self.genre.save
+  end
+
+  def genre_name
+    self.genre.name
+  end
 
   # NOTES METHODS
   def note_contents=(notes)
     # notes is an array being passed through from song#new
     notes.each do |content|
       if content.strip != ""
-        # if content is not an empty string, create a new note and assign to current song
-        Note.create(content: content, song: self)
+        self.notes.new(content: content).save
+        # self.notes.new == Note.new
+        # .save can be chained to new instance to save it
+        # cannot use .create unless parent is saved
+        # in this case, parent == self (song)
       end
     end
   end
@@ -19,7 +32,6 @@ class Song < ActiveRecord::Base
   def note_contents
     # rspec is asking for an array of the song notes
     self.notes.map { |note| note.content }
-
   end
 
   # ARTIST METHODS
