@@ -9,7 +9,7 @@
 
 In this lab, we're going to make a song library. Our data model looks like this:
 
-- `Artist`
+<!-- - `Artist`
   - has a `name` (string)
   - has many `songs`
 - `Song`
@@ -21,7 +21,7 @@ In this lab, we're going to make a song library. Our data model looks like this:
   - has many `songs`
 - `Note`
   - has `content` (string)
-  - belongs to a `Song`
+  - belongs to a `Song` -->
 
 ## Instructions
 
