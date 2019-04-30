@@ -10,9 +10,10 @@
   <%= f.collection_select(:genre_id, Genre.all, :id, :name) %><br>
   <br>
   <%= f.label :note_contents %><br>
-  <input type="text" name="song[note_contents][]" id="song_notes_1"><br>
-  <input type="text" name="song[note_contents][]" id="song_notes_2"><br>
-  <input type="text" name="song[note_contents][]" id="song_notes_3"><br>
+  <!-- multiple: true allows for array items for :note_contents -->
+  <%= f.text_field :note_contents, multiple: true, id: :song_notes_1 %><br>
+  <%= f.text_field :note_contents, multiple: true, id: :song_notes_2 %><br>
+  <%= f.text_field :note_contents, multiple: true, id: :song_notes_3 %><br>
   <br />
 
   <%= f.submit %>
