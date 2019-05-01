@@ -27,6 +27,7 @@ describe "the song form", :type => :feature do
     expect(Genre.find_by(name: 'Alternative').songs.pluck(:title)).to include 'Little Earthquakes'
   end
 
+  #### I DON'T LIKE THIS ONE >:^(
   # it 'creates a song with notes' do
   #   visit '/songs/new'
   #   fill_in :song_title, with: 'Little Earthquakes'
